@@ -1,0 +1,25 @@
+# 垃圾分类应用配置文件
+
+[api]
+# 天行API密钥
+key = "55d27cbb9294ba22e57125f52960b458"
+
+[cache]
+# 缓存设置
+enabled = true
+# 缓存有效期（天）
+expire_days = 7
+# 缓存文件路径
+file = "data/search_cache.json"
+
+[search]
+# 模糊搜索设置
+# 相似度阈值（0-1之间，值越高要求越严格）
+similarity_threshold = 0.6
+# 最大返回结果数量
+max_results = 5
+
+[server]
+# 服务器设置
+port = 8080
+debug = true 

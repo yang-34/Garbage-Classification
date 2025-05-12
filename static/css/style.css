@@ -1,0 +1,214 @@
+/* 基础样式 */
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+/* 搜索框样式 */
+.search-box {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #219653;
+}
+
+.small-button {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+/* 结果显示区域 */
+.result-box {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    min-height: 100px;
+}
+
+.result-category {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.recyclable {
+    background-color: #3498db; /* 蓝色 - 可回收 */
+}
+
+.hazardous {
+    background-color: #e74c3c; /* 红色 - 有害 */
+}
+
+.food {
+    background-color: #2ecc71; /* 绿色 - 厨余 */
+}
+
+.other {
+    background-color: #95a5a6; /* 灰色 - 其他 */
+}
+
+.unknown {
+    background-color: #9b59b6; /* 紫色 - 未知 */
+}
+
+.tips, .explain, .contain {
+    color: #555;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.source {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* 警告和错误提示 */
+.warning {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.error-category {
+    background-color: #e74c3c !important;
+}
+
+/* 模糊搜索结果样式 */
+.fuzzy-result {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fuzzy-result:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.result-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.result-similarity {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.result-source {
+    font-size: 11px;
+    color: #999;
+    font-style: italic;
+}
+
+/* 缓存信息区域 */
+.cache-info {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+    font-size: 14px;
+    text-align: left;
+}
+
+.cache-items {
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.cache-items ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+.cache-items li {
+    margin: 2px 0;
+    color: #555;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    input[type="text"] {
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        border-radius: 4px;
+    }
+}

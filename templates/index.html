@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>智能垃圾分类系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🗑️ 垃圾分类查询</h1>
+        <div class="search-box">
+            <input type="text" id="itemInput" placeholder="输入垃圾物品名称...">
+            <button onclick="classifyItem()">智能识别</button>
+        </div>
+        <div id="result" class="result-box"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
