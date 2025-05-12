@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>环保知识 - 环保先锋</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">🌍 环保先锋</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/">首页</a></li>
+                <li class="nav-item active"><a href="/knowledge">环保知识</a></li>
+                <li class="nav-item"><a href="/process">垃圾处理流程</a></li>
+                <li class="nav-item"><a href="/quiz">环保测验</a></li>
+                <li class="nav-item"><a href="/tips">减废技巧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="sidebar">
+            <h3>知识分类</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#recyclable" class="active">可回收物</a></li>
+                <li><a href="#hazardous">有害垃圾</a></li>
+                <li><a href="#food">厨余垃圾</a></li>
+                <li><a href="#other">其他垃圾</a></li>
+                <li><a href="#impact">环境影响</a></li>
+                <li><a href="#policy">政策解读</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <h1>环保知识中心</h1>
+            <p class="knowledge-intro">垃圾分类是保护环境的重要一步。通过正确分类，我们可以减少资源浪费，降低环境污染，为地球创造更加美好的未来。</p>
+            
+            <section id="recyclable" class="knowledge-section">
+                <h2><span class="category-icon recyclable">♻️</span> 可回收物</h2>
+                <div class="knowledge-card">
+                    <div class="knowledge-content">
+                        <p>可回收物是指适合回收利用和资源利用的废弃物，主要包括：</p>
+                        <ul>
+                            <li><strong>纸类：</strong>报纸、杂志、书籍、纸袋、纸盒等</li>
+                            <li><strong>塑料：</strong>塑料瓶、塑料盒、硬塑料等</li>
+                            <li><strong>金属：</strong>易拉罐、罐头盒、金属制品等</li>
+                            <li><strong>玻璃：</strong>玻璃瓶、玻璃杯等</li>
+                            <li><strong>织物：</strong>旧衣服、布料等</li>
+                        </ul>
+                        <div class="knowledge-highlight">
+                            <p><strong>回收小贴士：</strong>投放前请将可回收物清理干净，避免污染；纸箱需折叠压扁；易拉罐和塑料瓶需压扁以节省空间。</p>
+                        </div>
+                    </div>
+                    <div class="knowledge-image">
+                        <img src="{{ url_for('static', filename='images/recyclable.jpg') }}" alt="可回收物图示">
+                    </div>
+                </div>
+                
+                <div class="fact-box">
+                    <h4>你知道吗？</h4>
+                    <p>每回收1吨废纸，可以避免砍伐17棵树，节省3立方米的填埋空间。</p>
+                </div>
+            </section>
+            
+            <section id="hazardous" class="knowledge-section">
+                <h2><span class="category-icon hazardous">⚠️</span> 有害垃圾</h2>
+                <div class="knowledge-card">
+                    <div class="knowledge-content">
+                        <p>有害垃圾是指含有有毒有害物质，需要特殊安全处理的废弃物，主要包括：</p>
+                        <ul>
+                            <li><strong>电池：</strong>一次性电池、充电电池、纽扣电池等</li>
+                            <li><strong>灯管：</strong>荧光灯管、节能灯等</li>
+                            <li><strong>药品：</strong>过期药品、药物包装等</li>
+                            <li><strong>化学品：</strong>油漆、染发剂、洗涤剂等</li>
+                            <li><strong>电子产品：</strong>手机、充电器、电路板等</li>
+                        </ul>
+                        <div class="knowledge-highlight">
+                            <p><strong>安全小贴士：</strong>投放时请注意安全，避免泄漏和接触；药品需要去除外包装；灯管需要完整投放，避免破损。</p>
+                        </div>
+                    </div>
+                    <div class="knowledge-image">
+                        <img src="{{ url_for('static', filename='images/hazardous.jpg') }}" alt="有害垃圾图示">
+                    </div>
+                </div>
+                
+                <div class="fact-box">
+                    <h4>你知道吗？</h4>
+                    <p>一个纽扣电池可以污染600,000升水，相当于一个人一生的饮水量。</p>
+                </div>
+            </section>
+            
+            <!-- 后续加入更多知识部分 -->
+            <div class="placeholder-box">
+                <p>更多环保知识内容正在建设中，敬请期待！</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>环保先锋 © 2023 - 不仅是分类工具，更是环保教育平台</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/knowledge.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>减废技巧 - 环保先锋</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">🌍 环保先锋</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/">首页</a></li>
+                <li class="nav-item"><a href="/knowledge">环保知识</a></li>
+                <li class="nav-item"><a href="/process">垃圾处理流程</a></li>
+                <li class="nav-item"><a href="/quiz">环保测验</a></li>
+                <li class="nav-item active"><a href="/tips">减废技巧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <h1>低碳生活 · 减废技巧</h1>
+        <p class="tips-intro">垃圾分类是处理已有垃圾的方式，更重要的是减少垃圾的产生。以下是一些实用的减废生活技巧，帮助你减少对环境的影响。</p>
+        
+        <div class="tips-filter">
+            <button class="filter-btn active" data-category="all">全部技巧</button>
+            <button class="filter-btn" data-category="home">家居减废</button>
+            <button class="filter-btn" data-category="kitchen">厨房减废</button>
+            <button class="filter-btn" data-category="shopping">购物减废</button>
+            <button class="filter-btn" data-category="office">办公减废</button>
+        </div>
+        
+        <div class="tips-grid">
+            <div class="tip-card" data-category="shopping">
+                <div class="tip-icon">🛍️</div>
+                <h3>自带购物袋</h3>
+                <p>出门购物时随身携带可重复使用的购物袋，拒绝使用一次性塑料袋。一个普通塑料袋在自然环境中需要100-500年才能降解。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star">★</span>
+                    <span class="difficulty-star">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star">★</span>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="kitchen">
+                <div class="tip-icon">🥤</div>
+                <h3>使用可重复水杯</h3>
+                <p>自备水杯或咖啡杯，拒绝使用一次性纸杯和塑料杯。全球每年消耗超过5000亿个一次性杯子，其中大部分最终被填埋或焚烧。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star">★</span>
+                    <span class="difficulty-star">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star">★</span>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="kitchen">
+                <div class="tip-icon">🍽️</div>
+                <h3>自带餐具</h3>
+                <p>外出就餐或外卖时，携带可重复使用的餐具，减少一次性筷子、刀叉的使用。全球每年要砍伐近2000万棵树来制造一次性筷子。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star">★</span>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="home">
+                <div class="tip-icon">📦</div>
+                <h3>创意再利用</h3>
+                <p>将旧物品创造性地改造为新用途，如将玻璃罐改造为储物罐，旧T恤改造为抹布，纸箱改造为收纳盒等。这样不仅减少废物，还能节省购买新物品的开支。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star">★</span>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="kitchen">
+                <div class="tip-icon">🥗</div>
+                <h3>厨余堆肥</h3>
+                <p>将厨余垃圾如果皮、菜叶等通过堆肥方式转化为有机肥料，用于家庭植物或社区花园。厨余垃圾约占家庭垃圾总量的30%以上。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star active">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="shopping">
+                <div class="tip-icon">🛒</div>
+                <h3>理性消费</h3>
+                <p>购物前制定清单，只购买真正需要的物品，避免冲动消费。思考每件物品是否真的必要，选择耐用、可维修的产品而非一次性或短命的产品。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="office">
+                <div class="tip-icon">📄</div>
+                <h3>无纸化办公</h3>
+                <p>尽量使用电子文档，减少纸张打印；必须打印时，采用双面打印，并使用再生纸。全球每年因办公室打印消耗约1000万棵树。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star">★</span>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="home">
+                <div class="tip-icon">🚿</div>
+                <h3>水资源节约</h3>
+                <p>安装节水龙头和淋浴喷头，修复漏水管道，收集雨水用于植物浇灌。一个漏水的水龙头每天可能浪费多达90升水。</p>
+                <div class="tip-difficulty">
+                    <span>难度：</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star active">★</span>
+                    <span class="difficulty-star">★</span>
+                </div>
+                <div class="tip-impact">
+                    <span>影响：</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                    <span class="impact-star active">★</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="community-share">
+            <h2>分享你的减废经验</h2>
+            <p>你有什么独特的减废技巧？在下方留言分享给大家吧！</p>
+            <div class="comment-form">
+                <input type="text" id="commenter-name" placeholder="你的昵称">
+                <textarea id="comment-text" placeholder="分享你的环保减废技巧..."></textarea>
+                <button id="submit-comment">发布分享</button>
+            </div>
+            <div id="comments-container" class="comments-container">
+                <p>用户分享加载中...</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>环保先锋 © 2023 - 不仅是分类工具，更是环保教育平台</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/tips.js') }}"></script>
+</body>
+</html> 

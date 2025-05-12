@@ -80,6 +80,26 @@ def save_cache(cache):
 def index():
     return render_template('index.html')
 
+# 环保知识页面
+@app.route('/knowledge')
+def knowledge():
+    return render_template('knowledge.html')
+
+# 垃圾处理流程页面
+@app.route('/process')
+def process():
+    return render_template('process.html')
+
+# 环保测验页面
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
+
+# 减废技巧页面
+@app.route('/tips')
+def tips():
+    return render_template('tips.html')
+
 # 使用相似度进行模糊搜索
 def fuzzy_search(item, threshold=None):
     if threshold is None:

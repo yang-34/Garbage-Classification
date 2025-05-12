@@ -2,18 +2,59 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>智能垃圾分类系统</title>
+    <title>环保教育 - 智能垃圾分类系统</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">🌍 环保先锋</div>
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="/">首页</a></li>
+                <li class="nav-item"><a href="/knowledge">环保知识</a></li>
+                <li class="nav-item"><a href="/process">垃圾处理流程</a></li>
+                <li class="nav-item"><a href="/quiz">环保测验</a></li>
+                <li class="nav-item"><a href="/tips">减废技巧</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>🗑️ 垃圾分类查询</h1>
+        <p class="intro-text">输入物品名称，立即获取准确的分类指导，并了解更多环保知识</p>
         <div class="search-box">
             <input type="text" id="itemInput" placeholder="输入垃圾物品名称...">
             <button onclick="classifyItem()">智能识别</button>
         </div>
         <div id="result" class="result-box"></div>
+        
+        <div class="feature-cards">
+            <div class="feature-card" onclick="location.href='/knowledge'">
+                <div class="card-icon">📚</div>
+                <h3>环保知识</h3>
+                <p>探索垃圾分类与环保的深度知识</p>
+            </div>
+            <div class="feature-card" onclick="location.href='/process'">
+                <div class="card-icon">♻️</div>
+                <h3>处理流程</h3>
+                <p>了解垃圾从分类到处理的全过程</p>
+            </div>
+            <div class="feature-card" onclick="location.href='/quiz'">
+                <div class="card-icon">🎮</div>
+                <h3>环保测验</h3>
+                <p>测试你的环保知识，赢取成就徽章</p>
+            </div>
+            <div class="feature-card" onclick="location.href='/tips'">
+                <div class="card-icon">💡</div>
+                <h3>减废技巧</h3>
+                <p>实用的生活减废和低碳生活建议</p>
+            </div>
+        </div>
     </div>
+    <footer>
+        <p>环保先锋 © 2023 - 不仅是分类工具，更是环保教育平台</p>
+    </footer>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

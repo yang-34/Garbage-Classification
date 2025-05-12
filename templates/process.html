@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>垃圾处理流程 - 环保先锋</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">🌍 环保先锋</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/">首页</a></li>
+                <li class="nav-item"><a href="/knowledge">环保知识</a></li>
+                <li class="nav-item active"><a href="/process">垃圾处理流程</a></li>
+                <li class="nav-item"><a href="/quiz">环保测验</a></li>
+                <li class="nav-item"><a href="/tips">减废技巧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <h1>垃圾的旅程：从分类到再生</h1>
+        <p class="process-intro">你是否好奇过，当你将垃圾分类投放后，它们会经历怎样的旅程？下面让我们一起探索不同类型垃圾的处理流程。</p>
+        
+        <div class="process-tabs">
+            <button class="tab-btn active" data-target="recyclable-process">可回收物处理</button>
+            <button class="tab-btn" data-target="hazardous-process">有害垃圾处理</button>
+            <button class="tab-btn" data-target="food-process">厨余垃圾处理</button>
+            <button class="tab-btn" data-target="other-process">其他垃圾处理</button>
+        </div>
+        
+        <div class="process-content">
+            <div id="recyclable-process" class="process-panel active">
+                <h2>可回收物处理流程</h2>
+                <div class="process-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">1</div>
+                        <div class="timeline-content">
+                            <h3>分类收集</h3>
+                            <p>可回收物被投入蓝色垃圾桶，由专门的回收车辆收集并运往分拣中心。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">2</div>
+                        <div class="timeline-content">
+                            <h3>分拣处理</h3>
+                            <p>在分拣中心，可回收物会被进一步分类为纸类、塑料、金属、玻璃等，有些地方使用自动分拣系统，有些则依靠人工分拣。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">3</div>
+                        <div class="timeline-content">
+                            <h3>清洗与加工</h3>
+                            <p>分类后的材料被清洗、压缩、打包，去除杂质，为下一步再生利用做准备。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">4</div>
+                        <div class="timeline-content">
+                            <h3>再生加工</h3>
+                            <p>各类材料被送往专门的再生工厂：纸张被打浆制成再生纸；塑料被熔化后制成塑料颗粒；金属被熔炼；玻璃被打碎熔化。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">5</div>
+                        <div class="timeline-content">
+                            <h3>新产品制造</h3>
+                            <p>再生材料被制成新的产品：再生纸可做包装纸、卫生纸；塑料颗粒可制成各种塑料制品；再生金属和玻璃分别制成新的金属和玻璃产品。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-impact">
+                    <h3>环境效益：</h3>
+                    <ul>
+                        <li>减少原材料开采，节约自然资源</li>
+                        <li>降低能源消耗和水资源使用</li>
+                        <li>减少温室气体排放</li>
+                        <li>减少填埋场占用空间</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="hazardous-process" class="process-panel">
+                <h2>有害垃圾处理流程</h2>
+                <div class="process-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">1</div>
+                        <div class="timeline-content">
+                            <h3>专门收集</h3>
+                            <p>有害垃圾被投入红色垃圾桶，由专业人员使用特殊容器收集。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">2</div>
+                        <div class="timeline-content">
+                            <h3>安全存储</h3>
+                            <p>收集的有害垃圾被安全存储在专门的容器中，避免泄漏和污染。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">3</div>
+                        <div class="timeline-content">
+                            <h3>分类处理</h3>
+                            <p>根据不同类型的有害物质，采用不同的处理方法：电池和电子废物进行资源回收；药品和化学品进行无害化处理。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">4</div>
+                        <div class="timeline-content">
+                            <h3>无害化处理</h3>
+                            <p>采用高温焚烧、化学中和、生物降解等技术，将有害物质转化为无害或低害物质。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">5</div>
+                        <div class="timeline-content">
+                            <h3>安全处置</h3>
+                            <p>经处理后产生的残渣会被安全填埋或进一步处置，确保不会对环境造成二次污染。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-impact">
+                    <h3>为什么需要特殊处理：</h3>
+                    <p>有害垃圾中含有重金属、有毒化学物质等污染物，如果与普通垃圾混合处理或直接填埋，会造成：</p>
+                    <ul>
+                        <li>土壤和地下水污染</li>
+                        <li>大气污染</li>
+                        <li>对生态系统和人体健康的长期危害</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="food-process" class="process-panel">
+                <h2>厨余垃圾处理流程</h2>
+                <p>内容正在建设中，敬请期待。</p>
+            </div>
+            
+            <div id="other-process" class="process-panel">
+                <h2>其他垃圾处理流程</h2>
+                <p>内容正在建设中，敬请期待。</p>
+            </div>
+        </div>
+        
+        <div class="video-section">
+            <h2>垃圾处理过程视频展示</h2>
+            <p>视频资源正在准备中，敬请期待。</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>环保先锋 © 2023 - 不仅是分类工具，更是环保教育平台</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/process.js') }}"></script>
+</body>
+</html> 

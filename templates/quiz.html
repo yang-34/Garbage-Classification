@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>环保测验 - 环保先锋</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">🌍 环保先锋</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/">首页</a></li>
+                <li class="nav-item"><a href="/knowledge">环保知识</a></li>
+                <li class="nav-item"><a href="/process">垃圾处理流程</a></li>
+                <li class="nav-item active"><a href="/quiz">环保测验</a></li>
+                <li class="nav-item"><a href="/tips">减废技巧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <h1>环保知识挑战</h1>
+        <p class="quiz-intro">测试你的垃圾分类和环保知识，赢取荣誉徽章！每一次测验都是提升环保意识的机会。</p>
+        
+        <div class="quiz-levels">
+            <div class="level-card" data-level="beginner">
+                <div class="level-icon">🌱</div>
+                <h3>初学者</h3>
+                <p>基础垃圾分类知识</p>
+                <div class="level-difficulty">
+                    <span class="difficulty-dot active"></span>
+                    <span class="difficulty-dot"></span>
+                    <span class="difficulty-dot"></span>
+                </div>
+                <button class="start-quiz-btn" data-level="beginner">开始测验</button>
+            </div>
+            
+            <div class="level-card" data-level="intermediate">
+                <div class="level-icon">🌿</div>
+                <h3>进阶者</h3>
+                <p>深入垃圾处理知识</p>
+                <div class="level-difficulty">
+                    <span class="difficulty-dot active"></span>
+                    <span class="difficulty-dot active"></span>
+                    <span class="difficulty-dot"></span>
+                </div>
+                <button class="start-quiz-btn" data-level="intermediate">开始测验</button>
+            </div>
+            
+            <div class="level-card" data-level="expert">
+                <div class="level-icon">🌳</div>
+                <h3>环保专家</h3>
+                <p>综合环保与可持续发展</p>
+                <div class="level-difficulty">
+                    <span class="difficulty-dot active"></span>
+                    <span class="difficulty-dot active"></span>
+                    <span class="difficulty-dot active"></span>
+                </div>
+                <button class="start-quiz-btn" data-level="expert">开始测验</button>
+            </div>
+        </div>
+        
+        <div id="quiz-container" class="quiz-container" style="display: none;">
+            <div class="quiz-header">
+                <h2 id="quiz-title">测验标题</h2>
+                <div class="quiz-progress">
+                    <div id="progress-bar" class="progress-bar"></div>
+                    <span id="question-counter">问题 1/10</span>
+                </div>
+            </div>
+            
+            <div id="question-container" class="question-container">
+                <h3 id="question-text">问题内容将显示在这里</h3>
+                <div id="options-container" class="options-container">
+                    <!-- 选项将由JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div class="quiz-controls">
+                <button id="next-btn" class="quiz-btn">下一题</button>
+                <button id="submit-btn" class="quiz-btn" style="display: none;">提交答案</button>
+            </div>
+        </div>
+        
+        <div id="result-container" class="result-container" style="display: none;">
+            <h2>测验结果</h2>
+            <div class="result-score-container">
+                <div class="result-score-circle">
+                    <span id="result-score">0</span>/<span id="total-questions">10</span>
+                </div>
+                <div id="result-badge" class="result-badge">
+                    <img id="badge-img" src="" alt="成就徽章">
+                    <h3 id="badge-title">徽章标题</h3>
+                </div>
+            </div>
+            <div id="result-message" class="result-message">
+                结果评价信息
+            </div>
+            <div class="result-actions">
+                <button id="review-btn" class="quiz-btn">查看答案解析</button>
+                <button id="retry-btn" class="quiz-btn">重新测验</button>
+                <button id="back-btn" class="quiz-btn">返回选择</button>
+            </div>
+        </div>
+        
+        <div class="badges-showcase">
+            <h2>成就徽章墙</h2>
+            <p>完成测验获取徽章，展示你的环保知识水平！</p>
+            <div class="badges-grid">
+                <div class="badge-item locked">
+                    <div class="badge-img">🔒</div>
+                    <h4>分类新手</h4>
+                    <p>完成初学者测验</p>
+                </div>
+                <div class="badge-item locked">
+                    <div class="badge-img">🔒</div>
+                    <h4>回收达人</h4>
+                    <p>初学者测验满分</p>
+                </div>
+                <div class="badge-item locked">
+                    <div class="badge-img">🔒</div>
+                    <h4>环保卫士</h4>
+                    <p>完成进阶者测验</p>
+                </div>
+                <div class="badge-item locked">
+                    <div class="badge-img">🔒</div>
+                    <h4>生态守护者</h4>
+                    <p>进阶者测验满分</p>
+                </div>
+                <div class="badge-item locked">
+                    <div class="badge-img">🔒</div>
+                    <h4>环保大使</h4>
+                    <p>完成环保专家测验</p>
+                </div>
+                <div class="badge-item locked">
+                    <div class="badge-img">🔒</div>
+                    <h4>地球卫士</h4>
+                    <p>环保专家测验满分</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>环保先锋 © 2023 - 不仅是分类工具，更是环保教育平台</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+</body>
+</html> 
