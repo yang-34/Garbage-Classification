@@ -428,56 +428,59 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let badge = '';
         let message = '';
+        let badgeColor = '';
         
         if (currentLevel === "初学者") {
             if (percentage === 100) {
                 badge = '回收达人';
                 message = '太棒了！你对基础垃圾分类知识已经掌握得非常好了，继续保持！';
+                badgeColor = '#3498db'; // 蓝色
             } else if (percentage >= 60) {
                 badge = '分类新手';
                 message = '做得不错！你已经具备了基本的垃圾分类知识，但还有提升空间。';
+                badgeColor = '#2ecc71'; // 绿色
             } else {
                 badge = '环保学徒';
                 message = '垃圾分类的旅程才刚刚开始，不要气馁，继续学习吧！';
+                badgeColor = '#e74c3c'; // 红色
             }
         } else if (currentLevel === "进阶者") {
             if (percentage === 100) {
                 badge = '生态守护者';
                 message = '了不起！你对进阶环保知识已经驾轻就熟，你是垃圾分类的践行者！';
+                badgeColor = '#3498db'; // 蓝色
             } else if (percentage >= 60) {
                 badge = '环保卫士';
                 message = '很好！你对环保知识有一定的理解，再接再厉！';
+                badgeColor = '#2ecc71'; // 绿色
             } else {
                 badge = '绿色先锋';
                 message = '环保之路任重道远，别灰心，继续努力！';
+                badgeColor = '#e74c3c'; // 红色
             }
         } else if (currentLevel === "环保专家") {
             if (percentage === 100) {
                 badge = '地球卫士';
                 message = '太完美了！你在环保领域的知识已经达到专家水平，你就是环保的典范！';
+                badgeColor = '#3498db'; // 蓝色
             } else if (percentage >= 60) {
                 badge = '环保大使';
                 message = '优秀！你对环保有着深入的了解，已经超过大多数人！';
+                badgeColor = '#2ecc71'; // 绿色
             } else {
                 badge = '环保先行者';
                 message = '专家级别的知识需要更多学习，但你已经走在了正确的道路上！';
+                badgeColor = '#e74c3c'; // 红色
             }
         }
         
         badgeTitle.textContent = badge;
         resultMessage.textContent = message;
         
-        // 设置徽章图片(暂时使用文本)
-        badgeImg.src = "";
-        badgeImg.alt = badge;
-        const badgeEmoji = document.createElement('div');
-        badgeEmoji.textContent = '🏆';
-        badgeEmoji.style.fontSize = '60px';
-        if (badgeImg.firstChild) {
-            badgeImg.replaceChild(badgeEmoji, badgeImg.firstChild);
-        } else {
-            badgeImg.appendChild(badgeEmoji);
-        }
+        // 直接设置徽章div的文本和样式
+        badgeImg.textContent = badge;
+        badgeImg.style.color = badgeColor;
+        badgeImg.style.border = `3px solid ${badgeColor}`;
         
         return badge;
     }

@@ -1272,3 +1272,20 @@ footer {
 .progress-bar {
     animation: progress-fill 0.5s ease-out;
 }
+
+/* 徽章文字样式 */
+.badge-text-container {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 1.2;
+    padding: 10px;
+}
