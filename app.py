@@ -1,5 +1,5 @@
 # 导入Flask及相关模块
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, session
 # 导入处理库
 import http.client
 import urllib.parse
@@ -9,6 +9,7 @@ import os
 import time
 import difflib  # 用于模糊匹配
 import tomli    # TOML解析库
+import uuid     # 用于生成唯一用户ID
 
 # 确保数据目录存在
 if not os.path.exists('data'):
@@ -38,13 +39,28 @@ def load_garbage_db():
         print(f"加载垃圾分类数据库失败: {e}")
         return {}
 
+# 加载环保知识题库
+def load_subject_data():
+    try:
+        with open("data/subject.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"加载环保知识题库失败: {e}")
+        return []
+
 # 全局配置
 CONFIG = load_config()
 # 全局垃圾分类数据库
 GARBAGE_DB = load_garbage_db()
+# 环保知识题库
+SUBJECT_DATA = load_subject_data()
 
 # 初始化Flask应用
 app = Flask(__name__)
+app.secret_key = os.urandom(24)  # 设置session密钥
+
+# 用户数据存储，将使用用户ID作为键
+USER_DATA = {}
 
 # 缓存文件路径
 CACHE_FILE = CONFIG["cache"]["file"]
@@ -93,6 +109,19 @@ def process():
 # 环保测验页面
 @app.route('/quiz')
 def quiz():
+    # 如果用户没有ID，生成一个
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4())
+    
+    user_id = session['user_id']
+    
+    # 如果是新用户，初始化用户数据
+    if user_id not in USER_DATA:
+        USER_DATA[user_id] = {
+            'badges': [],
+            'completed_quizzes': {}
+        }
+    
     return render_template('quiz.html')
 
 # 减废技巧页面
@@ -409,6 +438,67 @@ def test_api():
             'success': False,
             'message': f'API测试异常: {str(e)}'
         })
+
+# API接口：获取题库数据
+@app.route('/api/subject-data', methods=['GET'])
+def get_subject_data():
+    return jsonify(SUBJECT_DATA)
+
+# API接口：保存用户测验结果
+@app.route('/api/save-quiz-result', methods=['POST'])
+def save_quiz_result():
+    if 'user_id' not in session:
+        return jsonify({'success': False, 'error': '未找到用户会话'})
+    
+    user_id = session['user_id']
+    data = request.json
+    
+    if user_id not in USER_DATA:
+        USER_DATA[user_id] = {
+            'badges': [],
+            'completed_quizzes': {}
+        }
+    
+    level = data.get('level')
+    score = data.get('score')
+    total = data.get('total')
+    badge = data.get('badge')
+    
+    # 更新用户的测验完成记录
+    USER_DATA[user_id]['completed_quizzes'][level] = {
+        'score': score,
+        'total': total,
+        'percentage': (score / total) * 100 if total > 0 else 0,
+        'completed_at': time.time()
+    }
+    
+    # 如果获得了徽章且之前没有，添加到徽章列表
+    if badge and badge not in USER_DATA[user_id]['badges']:
+        USER_DATA[user_id]['badges'].append(badge)
+    
+    return jsonify({
+        'success': True,
+        'user_data': USER_DATA[user_id]
+    })
+
+# API接口：获取用户数据
+@app.route('/api/user-data', methods=['GET'])
+def get_user_data():
+    if 'user_id' not in session:
+        return jsonify({'success': False, 'error': '未找到用户会话'})
+    
+    user_id = session['user_id']
+    
+    if user_id not in USER_DATA:
+        USER_DATA[user_id] = {
+            'badges': [],
+            'completed_quizzes': {}
+        }
+    
+    return jsonify({
+        'success': True,
+        'user_data': USER_DATA[user_id]
+    })
 
 # 主程序入口
 if __name__ == '__main__':

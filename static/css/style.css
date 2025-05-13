@@ -1046,3 +1046,229 @@ footer {
         margin-bottom: 5px;
     }
 }
+
+/* 题型标签 */
+.question-type-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.question-type-badge.multiple {
+    background-color: #e74c3c;
+}
+
+.question-type-badge.judge {
+    background-color: #27ae60;
+}
+
+/* 判断题选项 */
+.judge-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.judge-option {
+    padding: 12px 30px;
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.judge-option:hover {
+    background-color: #e9ecef;
+}
+
+.judge-option.selected {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #28a745;
+}
+
+/* 多选题选项 */
+.option-item.multiple {
+    position: relative;
+    padding-left: 40px;
+}
+
+.option-item.multiple:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #adb5bd;
+    border-radius: 4px;
+}
+
+.option-item.multiple.selected:before {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.option-item.multiple.selected:after {
+    content: '✓';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 结果统计 */
+.result-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+    padding: 10px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* 答案解析容器 */
+.review-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.questions-review {
+    margin-top: 20px;
+}
+
+.review-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #e9ecef;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.review-options {
+    margin-bottom: 15px;
+}
+
+.review-option {
+    padding: 8px 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.review-option.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.review-option.wrong {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.review-option.user-selected {
+    border-left: 4px solid #17a2b8;
+    padding-left: 15px;
+}
+
+.review-explanation {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-style: italic;
+    color: #6c757d;
+}
+
+/* 徽章动画 */
+@keyframes badge-unlock {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes badge-shine {
+    0% {
+        box-shadow: 0 0 5px 2px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px 2px rgba(255, 215, 0, 0.5);
+    }
+}
+
+.badge-item.unlocked {
+    animation: badge-unlock 0.5s ease-out, badge-shine 2s ease-in-out infinite;
+}
+
+.badge-item.unlocked .badge-img {
+    background-color: #ffd700;
+    color: #fff;
+    content: '🏆';
+}
+
+/* 进度条动画 */
+@keyframes progress-fill {
+    0% {
+        width: 0%;
+    }
+}
+
+.progress-bar {
+    animation: progress-fill 0.5s ease-out;
+}
