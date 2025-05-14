@@ -1,31 +1,60 @@
 @echo off
-chcp 65001 >nul
-echo 正在启动垃圾分类应用...
+title Garbage Classification Program
 
-:: 检查Python环境
-python --version >nul 2>&1
+:: Check python
+python --version
 if %errorlevel% neq 0 (
-    echo Python未安装或未添加到PATH，请安装Python并重试！
+    echo Python is not installed or not in PATH!
     pause
     exit /b 1
 )
 
-:: 检查并安装依赖
-echo 正在检查依赖...
-python -c "import flask" >nul 2>&1
+:: Check and install dependencies
+echo Checking dependencies...
+
+python -c "import flask"
 if %errorlevel% neq 0 (
-    echo 正在安装Flask...
+    echo Installing Flask...
     pip install flask
+    
+    :: Re-check after installation
+    python -c "import flask"
+    if %errorlevel% neq 0 (
+        echo Flask installation verification failed!
+        pause
+        exit /b 1
+    ) else (
+        echo Flask installed successfully.
+    )
+) else (
+    echo Flask already installed.
 )
 
-python -c "import tomli" >nul 2>&1
+python -c "import tomli"
 if %errorlevel% neq 0 (
-    echo 正在安装tomli...
+    echo Installing tomli...
     pip install tomli
+    
+    :: Re-check after installation
+    python -c "import tomli"
+    if %errorlevel% neq 0 (
+        echo Tomli installation verification failed!
+        pause
+        exit /b 1
+    ) else (
+        echo Tomli installed successfully.
+    )
+) else (
+    echo Tomli already installed.
 )
 
-:: 启动应用
-echo 正在启动应用...
+:: Run application
+echo Starting application...
+echo Application will open in a browser window.
 python app.py
+
+echo.
+echo Application closed!
+echo If you saw any errors above, please take a screenshot.
 
 pause 
