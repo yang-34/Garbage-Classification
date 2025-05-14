@@ -30,7 +30,7 @@
 ├── garbage_classification.py  # 桌面GUI应用
 ├── config.toml         # 配置文件
 ├── requirements.txt    # 依赖包列表
-├── run.bat             # Windows启动脚本
+├── 点我启动垃圾分类程序.bat    # Windows启动脚本
 ├── data/               # 数据目录
 │   ├── garbage_db.json # 垃圾分类数据库
 │   └── search_cache.json # 搜索缓存文件
@@ -50,7 +50,7 @@
 
 ### Windows
 
-1. 双击运行 `run.bat` 脚本
+1. 双击运行 `点我启动垃圾分类程序.bat` 脚本
 2. 等待脚本安装依赖并启动应用
 3. 浏览器将自动打开应用页面
 
