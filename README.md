@@ -1,5 +1,3 @@
-[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
-
 # 使用本项目前请确保正确安装Python及配置环境变量
 
 # 环保先锋 - 垃圾分类与环保教育平台
